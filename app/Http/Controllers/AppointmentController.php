@@ -12,7 +12,7 @@ class AppointmentController extends Controller
     {
         return view('appointment');
     }
-    public function saveAppointment(Request $request)
+    public function addAppointment(Request $request)
     {
         DB::table ('appointment')->insert([
         'name'=> $request->name,

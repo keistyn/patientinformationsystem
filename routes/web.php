@@ -22,4 +22,4 @@ Route::get('/appointment', function () {
 });
 
 Route::get('/appointment',[App\Http\Controllers\AppointmentController::class,'appointment'])->name('post.add');
-Route::post('/appointment',[App\Http\Controllers\AppointmentController::class,'saveAppointment'])->name('save.post');
+Route::post('/appointment',[App\Http\Controllers\AppointmentController::class,'addAppointment'])->name('save.post');

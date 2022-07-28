@@ -53,21 +53,21 @@
             <div class="card-body p-5">
               <h2 class="text-uppercase text-center mb-5">Create Appointment</h2>
 
-              <form>
+              <form action = "/create" method = "post">
 
                 <div class="form-outline mb-4">
-                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
                   <label class="form-label" for="form3Example1cg">Name</label>
+                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
                 </div>
 
                 <div class="form-outline mb-4">
-                  <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
                   <label class="form-label" for="form3Example3cg">Date</label>
+                  <input type="date" id="form3Example3cg" class="form-control form-controller datepicker-lg" />
                 </div>
 
                 <div class="form-outline mb-4">
+                <label class="form-label" for="form3Example4cg">Concern</label>
                   <input type="password" id="form3Example4cg" class="form-control form-control-lg" />
-                  <label class="form-label" for="form3Example4cg">Concern</label>
                 </div>
 
                 <div class="d-flex justify-content-center">
