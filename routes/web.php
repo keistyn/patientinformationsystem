@@ -21,12 +21,5 @@ Route::get('/appointment', function () {
     return view('appointment');
 });
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
+Route::get('/appointment',[App\Http\Controllers\AppointmentController::class,'appointment'])->name('post.add');
+Route::post('/appointment',[App\Http\Controllers\AppointmentController::class,'saveAppointment'])->name('save.post');

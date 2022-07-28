@@ -71,14 +71,12 @@ a { color: #FF0000; }
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-    <li class="nav-item active">
-        <a class="nav-link" href="/welcome">Home <span class="sr-only">(current)</span></a>
-      </li>
+  
     <li class="nav-item">
-        <a class="nav-link" style=" margin-left:1050px; position:absolute" href="{{ route('login') }}">Login</a>
+        <a class="nav-link" style=" margin-left:1350px; position:absolute" href="{{ route('login') }}">Login</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" style=" margin-left:1150px"  href="{{ url('/appointment') }}">Create Appointment</a>
+        <a class="nav-link" style=" margin-left:1450px"  href="{{ url('/appointment') }}">Create Appointment</a>
       </li>
     </ul>
   </div>
