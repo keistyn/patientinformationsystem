@@ -53,7 +53,7 @@
             <div class="card-body p-5">
               <h2 class="text-uppercase text-center mb-5">Create Appointment</h2>
 
-              <form action = "/create" method = "post">
+              <form action = "{{ route('login') }}" method = "POST">
 
                 <div class="form-outline mb-4">
                   <label class="form-label" for="form3Example1cg">Name</label>
