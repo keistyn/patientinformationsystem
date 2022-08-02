@@ -28,3 +28,4 @@ Route::post('/appointment',[App\Http\Controllers\AppointmentController::class,'a
 Route::get('full-calendar', [FullCalendarController::class, 'index']);
 Route::post('full-calendar/action', [FullCalendarController::class, 'action']);
 
+Route::get('admin-full-calendar', [FullCalendarController::class, 'index']);
