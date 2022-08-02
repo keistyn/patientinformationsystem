@@ -12,7 +12,8 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+   
+    <!-- calendar CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
@@ -44,6 +45,7 @@
 </nav>
       <!--navigation bar -->
         
+        <!--calendar -->
 <div class="container">
     <br />
     <h1 class="text-center text-primary"><u></u></h1>
@@ -52,9 +54,9 @@
     <div id="calendar"></div>
 
 </div>
-
+<!--hello-->
 <script>
-  var con='';
+ 
 $(document).ready(function () {
 
 $.ajaxSetup({
@@ -64,25 +66,26 @@ $.ajaxSetup({
 });
 
 var calendar = $('#calendar').fullCalendar({
-
-        editable:true,
+       
+        displayEventTime : false,
+        eventLimit: 1,
+        navLinks: true,
         header:{
-        right:'prev,next today',
+        right:'prev,next, today',
         left:'title',
         center:''
-
         
     },
     events:'/full-calendar',
-    selectable:true,
+    showevent:false,
+    selectable:true, //set appointment
     selectHelper: true,
     select:function(start, end, allDay)
     {
-        var title = prompt('Set Appointment');
+        var title = prompt('Set Appointment\nName:');
       if(title)
         {
             var start = $.fullCalendar.formatDate(start, 'Y-MM-DD ');
-
             var end = $.fullCalendar.formatDate(end, 'Y-MM-DD ');
 
             $.ajax({
@@ -102,6 +105,25 @@ var calendar = $('#calendar').fullCalendar({
             })
         }
     },
+    /*count number of event */
+    dayClick: function(date, allDay, jsEvent, view) {
+       
+            var eventsCount =0;
+            var date = date.format('YYYY-MM-DD');
+            $('#calendar').fullCalendar('clientEvents', function(event) {
+                var start = moment(event.start).format("YYYY-MM-DD");
+                var end = moment(event.end).format("YYYY-MM-DD");
+                if(date == start)
+                {
+                    eventsCount++;
+                }
+            });
+            alert("200 slots only\n"+ "Total slot: "+eventsCount);
+        }
+   
+
+    /* edit, delelte 
+
     editable:true,
     eventResize: function(event, delta)
     {
@@ -170,6 +192,7 @@ var calendar = $('#calendar').fullCalendar({
             })
         }
     }
+    */
 });
 
 });
